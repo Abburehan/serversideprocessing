@@ -38,7 +38,7 @@ math.html
 <head>
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<title>Area of Rectangle</title>
+<title>Area of triangle</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <style type="text/css">
 body 
@@ -77,14 +77,14 @@ padding-top: 20px;
 <body>
 <div class="edge">
 <div class="box">
-<h1>Area of a Rectangle</h1>
+<h1>Area of a triangle</h1>
 <form method="POST">
 {% csrf_token %}
 <div class="formelt">
 Length : <input type="text" name="length" value="{{l}}"></input>(in m)<br/>
 </div>
 <div class="formelt">
-Breadth : <input type="text" name="breadth" value="{{b}}"></input>(in m)<br/>
+Height : <input type="text" name="height" value="{{h}}"></input>(in m)<br/>
 </div>
 <div class="formelt">
 <input type="submit" value="Calculate"></input><br/>
@@ -105,35 +105,36 @@ def rectarea(request):
     context={}
     context['area'] = "0"
     context['l'] = "0"
-    context['b'] = "0"
+    context['h'] = "0"
     if request.method == 'POST':
         print("POST method is used")
         l = request.POST.get('length','0')
-        b = request.POST.get('breadth','0')
+        h = request.POST.get('height','0')
         print('request=',request)
         print('Length=',l)
-        print('Breadth=',b)
+        print('height=',h)
         area = int(l) * int(b)
         context['area'] = area
         context['l'] = l
-        context['b'] = b
+        context['h'] = h
         print('Area=',area)
     return render(request,'myapp/math.html',context)
 
 urls.py
+
 from django.contrib import admin
 from django.urls import path
 from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('areaofrectangle/',views.rectarea,name="areaofrectangle"),
-    path('',views.rectarea,name="areaofrectangleroot")
+    path('areaoftriangle/',views.rectarea,name="areaoftriangle"),
+    path('',views.triarea,name="areaoftriroot")
 ]
 '''
 ## OUTPUT:
-![OUTPUT](./abbu server.png)
+![OUTPUT](./out.png)
 ### Home Page:
-![Home Page](./serverside.png)
+![Home Page](./home.png)
 
 ## Result:
 The program for implementing server side processing is completed successfully.
