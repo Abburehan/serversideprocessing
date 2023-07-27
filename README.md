@@ -30,7 +30,7 @@ Create a HTML file of forms.
 Publish the website in the given URL.
 
 ## PROGRAM :
-'''html
+```py
 
 <html>
 <head>
@@ -95,7 +95,8 @@ Area : <input type="text" name="area" value="{{area}}"></input>m<sup>2</sup><br/
 </div>
 </body>
 </html>
-
+```
+```py
 
 from django.shortcuts import render
 def rectarea(request):
@@ -115,8 +116,9 @@ def rectarea(request):
         context['l'] = l
         context['h'] = h
         print('Area=',area)
-    return render(request,'myapp/math.html',context)
-
+    return render(request,'myapp/serversideprocessing.html',context)
+```
+```py
 from django.contrib import admin
 from django.urls import path
 from myapp import views
@@ -125,7 +127,7 @@ urlpatterns = [
     path('areaoftriangle/',views.rectarea,name="areaoftriangle"),
     path('',views.triarea,name="areaoftriroot")
 ]
-'''
+```
 ## OUTPUT:
 ![OUTPUT](out.png)
 ### Home Page:
