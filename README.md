@@ -30,9 +30,7 @@ Create a HTML file of forms.
 Publish the website in the given URL.
 
 ## PROGRAM :
-'''
-
-math.html
+'''html
 
 <html>
 <head>
@@ -98,7 +96,6 @@ Area : <input type="text" name="area" value="{{area}}"></input>m<sup>2</sup><br/
 </body>
 </html>
 
-views.py 
 
 from django.shortcuts import render
 def rectarea(request):
@@ -120,8 +117,6 @@ def rectarea(request):
         print('Area=',area)
     return render(request,'myapp/math.html',context)
 
-urls.py
-
 from django.contrib import admin
 from django.urls import path
 from myapp import views
@@ -132,9 +127,9 @@ urlpatterns = [
 ]
 '''
 ## OUTPUT:
-![OUTPUT](./out.png)
+![OUTPUT](out.png)
 ### Home Page:
-![Home Page](./home.png)
+![Home Page](home.png)
 
 ## Result:
 The program for implementing server side processing is completed successfully.
